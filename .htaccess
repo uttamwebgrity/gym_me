@@ -1,0 +1,18 @@
+RewriteEngine On
+
+
+ 
+#All first level page redirect to .php page
+RewriteRule ^(.*)/$  $1.php
+
+RewriteRule ^instructors-new/(.*)$ instructors-new.php?id=$1
+RewriteRule ^class-new/(.*)$ class-new.php?id=$1
+
+
+
+RewriteRule ^gym/(.*)$ gym-details.php?id=$1
+RewriteRule ^personal-trainer/(.*)$ personal-trainer-details.php?id=$1
+
+
+
+

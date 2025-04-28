@@ -1,0 +1,19 @@
+Background color: #ffffff;
+
+Main strip color: #e086b2;
+
+Side panel bg color: #fafafa;
+
+Border color: #e086b2;
+
+Inactive link in the top (Home, Member, Settings): #a19e9e;
+
+Active link or hover color in the top: #6b6b6b;
+
+Button_BG : #a74f89;
+
+** Error Message : #4f4f51;
+
+Secure Area : Font: Georgia #fff0ff;
+
+Main Body_Alternate strip Colour: 1) #fdf9fb;  2) #f9e7f0;

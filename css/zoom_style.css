@@ -1,0 +1,203 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* 
+	Resets defualt browser settings
+	reset.css
+*/
+
+
+.container {
+	width:477px;
+	margin:0 auto;
+	position:relative;
+	z-index:0;
+	height:374px;
+
+}
+
+.container_inner{
+	width:500px;
+	margin:0 auto;
+	position:relative;
+	z-index:0;
+	height:400px;
+
+	}
+
+.products_example {
+	width:100%;
+	float:left;
+	position:relative;
+}
+
+/*
+	Slideshow
+*/
+
+#products {
+	margin-left:0px;
+}
+
+/*
+	Slides container
+	Important:
+	Set the width of your slides container
+	Set to display none, prevents content flash
+*/
+
+.products .slides_container {
+	width:100%;
+	overflow:inherit !important;
+	float:left;
+	position:relative;
+	display:none;
+}
+
+/*
+	Each slide
+	Important:
+	Set the width of your slides
+	If height not specified height will be set by the slide content
+	Set to display block
+*/
+
+.slides_container a {
+	width:477px;
+	height:374px;
+	display:block;
+	cursor: url(../images/grab.cur), default;
+	text-align:center;
+	
+	
+}
+
+.inner_frame_slider .slides_container a{width:500px; height:400px;}
+
+.inner_frame_slider .zoom img{max-width:498px; max-height:400px;}
+
+.inner_frame_slider .slides_container a td{height:400px;}
+
+/*
+	Next/prev buttons
+*/
+
+.products .prev, .products .next{display:none;}
+
+#products .next,#products .prev {
+	position:absolute;
+	top:127px;
+	left:0;
+	width:21px;
+	height:0;
+	padding-top:21px;
+	overflow:hidden;
+	display:none;
+	z-index:101;
+}
+
+#products .prev {
+	background:url(../img/arrow-prev.png);
+}
+
+#products .next {
+	left:398px;
+	background:url(../img/arrow-next.png);
+}
+
+/*
+	Pagination
+*/
+
+.products .pagination {
+	width:280px;
+	float:left;
+	margin:8px 0 0 0px; padding:0px;
+}
+
+.products .pagination li {
+	float:left;
+	list-style:none;
+	width:150px;
+	height:100px;
+	margin-right:9px;
+	position:relative;
+
+
+	
+	
+	
+}
+
+.products .pagination li a {
+	display:block;
+	width:150px;
+	height:100px;
+	float:left;
+	text-align:center;
+	
+	
+	
+	
+}
+
+.products .pagination li a td{height:100px; vertical-align:middle;}
+
+.products .pagination li a img{max-width:144px; max-height:94px; border:3px solid #F3F3F3; transition: all 0.3s ease 0s;}
+
+.type_thumbnail{position:absolute; top:0px; left:0px;}
+
+.products .pagination li a:hover td > img{border-color:#e50b00;}
+
+#products .pagination li.current a {
+
+}
+
+.products .pagination li.current a img{border-color:#e50b00;};
+
+/*
+	Footer
+*/
+
+#footer {
+	clear:both;
+	text-align:center;
+	width:580px;
+	margin-top:9px;
+	padding:4.5px 0 18px;
+	border-top:1px solid #dfdfdf;
+}
+
+#footer p {
+	margin:4.5px 0;
+	font-size:1.0em;
+}
+
+/*
+	Anchors
+*/
+
+
+
+.zoom {
+			display:block;
+			position:relative;
+			height:271px;
+		}
+
+		.zoom img {
+
+			max-height:372px; max-width:475px; border:1px solid #FFF; box-shadow:3px 3px 3px #aaaaaa;
+		}
+		
+		.slides_container a td{height:374px; vertical-align:middle;}
+
+		.zoom img::selection { background-color: transparent; }
+.zoomImg{max-height:inherit !important; max-width:inherit !important;}
+	
+		
+		
+		
+		
+.zoom_tag{width:280px; position:absolute; left:0px; top:256px; background:url(../images/zoom_tag_back.png) repeat left top; text-align:center; height:24px; line-height:24px; font-size:11px; color:#FFF; z-index:500;}
+.magnify_icon{position:absolute; width:9px; height:9px; background:url(../images/magnify.png) no-repeat left top; left:35px; top:8px; z-index:800;}		

@@ -1,0 +1,171 @@
+<?php 
+include_once("includes/header.php");
+
+
+if(isset($_REQUEST['enter']) && $_REQUEST['enter']=="contactus"){	
+	
+	$email_content='<tr>
+						<td align="left" valign="top" style="padding:20px; margin:0; line-">
+					    	<table width="700" cellspacing="3" cellpadding="6" border="0" align="center" style="line-height: 25px;">
+					        	<tr>
+					            	<td width="100" align="left" style="font:normal 13px/22px Georgia," ><strong> Name:</strong></td>
+					                 <td width="600" align="left" style="font:normal 13px/22px Georgia,">' . $_REQUEST['name'] . '</td>
+					              </tr>					                               
+					               <tr>
+					                  <td align="left" style="font:normal 13px/22px Georgia, "><strong>Email: </strong></td>
+					                  <td align="left" style="font:normal 13px/22px Georgia, ">' . $_REQUEST['email'] . '</td>
+					              	</tr>
+					               	<tr>
+					                 <td align="left" style="font:normal 13px/22px Georgia, " ><strong>Phone No.:</strong></td>
+					                  <td align="left" style="font:normal 13px/22px Georgia, " >' . $_REQUEST['phone'] . '</td>
+					                </tr>					               
+					               	<tr>
+					               		<td valign="top" align="left" style="font:normal 13px/22px Georgia, " ><strong>Message:</strong></td>
+					                    <td align="left" style="font:normal 13px/22px Georgia, " >' . $_REQUEST['comments'] . '</td>
+					             	</tr>
+					            </table>
+					   		</td>
+				  		</tr>';		
+		
+		//*******************  send email to employer *******************//
+		$recipient_info=array();
+		$recipient_info['recipient_subject']=$general_func->site_title ." Website Contact Us Form Details";
+		$recipient_info['recipient_content']=$email_content;
+		$recipient_info['recipient_email']=$general_func->email;		
+		$sendmail -> send_email($recipient_info, $general_func->email,$general_func->site_title, $general_func->site_url);				
+		//***************************************************************//	
+		$general_func->header_redirect($general_func->site_url . "thank-you/");
+}
+?>	
+<script>
+function check_validate(){
+	if(!validate_text(document.frmcontactus.name,1,"Blank space not allowed. Please enter your name."))
+		return false;
+		
+	if(!validate_email(document.frmcontactus.email,1,"Blank space not allowed. Please enter your email address. "))
+		return false;
+		
+	if(!validate_text(document.frmcontactus.phone,1,"Blank space not allowed. Please enter your phone number."))
+		return false;		
+	
+	if(!validate_text(document.frmcontactus.comments,1,"Blank space not allowed. Please enter your message."))
+	   return false;	
+}
+</script>			
+<div class="main_container">
+	<div class="main">
+		<div class="text-content">
+			<h1>Payment</h1>
+            
+            <!-- sep form -->
+            <div class="sep_form">
+			<p>Card Holder's Details</p>
+			 
+			 <input type="hidden" name="enter" value="contactus"  />	
+	        <ul class="contact-form">
+	          <li>
+	            <label>First Name</label>
+	            <input type="text" name="" value="" placeholder="Enter first name" />
+	          </li>
+	          <li>
+	            <label>Last Name</label>
+	            <input type="text" name="" value="" placeholder="Enter last name" />
+	          </li>
+	          <li>
+	            <label>Address</label>
+	            <textarea></textarea>
+	          </li>
+	          <li>
+	            <label>City</label>
+	            <input type="text" name="" value="" placeholder="Enter city" />
+	          </li>
+              
+              <li>
+	            <label>Country</label>
+	            <div class="select_box">
+                <select>
+                <option>Select Country</option>
+                </select>
+                </div>
+	          </li>
+              
+              <li>
+	            <label>State</label>
+	            <div class="select_box">
+                <select>
+                <option>Select State</option>
+                </select>
+                </div>
+	          </li>
+              
+              <li>
+	            <label>Zipcode</label>
+	            <input type="text" name="" value="" placeholder="Enter zipcode" />
+	          </li>
+              
+              <li>
+	            <label>Phone No.</label>
+	            <input type="text" name="" value="" placeholder="Enter phone No." />
+	          </li>
+  
+	        </ul>
+	  	
+          </div>
+          <!-- sep form -->
+          
+          <!-- sep form -->
+            <div class="sep_form" style="float:right;">
+			<p>Credit Card Details</p>
+			 
+			 <input type="hidden" name="enter" value="contactus"  />	
+	        <ul class="contact-form">
+            
+            <li>
+	            <label>Credit card Number</label>
+	            <input type="text" name="" value="" placeholder="Enter Credit card Number" />
+	          </li>
+	
+              
+              <li>
+	            <label>Expiray Date</label>
+	            <div class="select_box mini_general_select_box">
+                <select>
+                <option>Month</option>
+                </select>
+                </div>
+                <div class="select_box mini_general_select_box" style="float:right;">
+                <select>
+                <option>Year</option>
+                </select>
+                </div>
+	          </li>
+              
+              <li>
+	            <label>Card Type</label>
+	            <div class="select_box">
+                <select>
+                <option>Select Card Type</option>
+                </select>
+                </div>
+	          </li>
+              
+              <li>
+	            <label>CVV Number</label>
+	            <input type="text" name="" value="" placeholder="Enter CVV Number" />
+                <img src="images/cvv.png" style="position:absolute; bottom:35px; right:0px;" />
+	          </li>
+          
+              
+	          <li style="background:none;">
+	            <input type="submit" value="Submit" />
+	          </li>
+	        </ul>
+	   	
+          </div>
+          <!-- sep form -->
+          
+          						      
+		</div>
+	</div>
+</div>
+<?php include_once("includes/footer.php");?>

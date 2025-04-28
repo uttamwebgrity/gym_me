@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>test</title>
+		<meta name="author" content="Webgrity" />
+		<!-- Date: 2013-08-29 -->
+		
+	
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.jqplot.min.js"></script>
+<script type="text/javascript" src="plugins/jqplot.barRenderer.min.js"></script>
+<script type="text/javascript" src="plugins/jqplot.pieRenderer.min.js"></script>
+<script type="text/javascript" src="plugins/jqplot.categoryAxisRenderer.min.js"></script>
+<script type="text/javascript" src="plugins/jqplot.pointLabels.min.js"></script>
+<link rel="stylesheet" type="text/css" href="jquery.jqplot.min.css" />
+	
+		
+	</head>
+	<body>
+		<script>
+		
+		$(document).ready(function(){
+        $.jqplot.config.enablePlugins = true;
+        var s1 = [2, 6, 7, 10];
+        var ticks = ['a', 'b', 'c', 'd'];
+         
+        plot1 = $.jqplot('chart1', [s1], {
+            // Only animate if we're not using excanvas (not in IE 7 or IE 8)..
+            animate: !$.jqplot.use_excanvas,
+            seriesDefaults:{
+                renderer:$.jqplot.BarRenderer,
+                pointLabels: { show: true }
+            },
+            axes: {
+                xaxis: {
+                    renderer: $.jqplot.CategoryAxisRenderer,
+                    ticks: ticks
+                }
+            },
+            highlighter: { show: false }
+        });
+     
+        $('#chart1').bind('jqplotDataClick',
+            function (ev, seriesIndex, pointIndex, data) {
+                $('#info1').html('series: '+seriesIndex+', point: '+pointIndex+', data: '+data);
+            }
+        );
+    });
+		
+	</script>	
+	    <div id="chart1" style="margin-top:20px; margin-left:20px; width:300px; height:300px;"></div>
+
+	</body>
+</html>
+
